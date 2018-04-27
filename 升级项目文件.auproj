@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<AuProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UpdateInfo>
+    <AppName>考勤助手</AppName>
+    <AppVersion>1.0.0.0</AppVersion>
+    <FileExecuteAfter>KaoQin.exe</FileExecuteAfter>
+    <ExecuteTimeout>0</ExecuteTimeout>
+    <TreatErrorAsNotUpdated>false</TreatErrorAsNotUpdated>
+    <PromptUserBeforeAutomaticUpgrade>true</PromptUserBeforeAutomaticUpgrade>
+    <AutoCloseSucceedWindow>true</AutoCloseSucceedWindow>
+    <DeleteMethod>None</DeleteMethod>
+    <PackageSize>0</PackageSize>
+    <ForceUpdate>false</ForceUpdate>
+    <Packages />
+    <HideBeforeExecuteWindow>false</HideBeforeExecuteWindow>
+    <HideAfterExecuteWindow>false</HideAfterExecuteWindow>
+    <MustUpdate>false</MustUpdate>
+    <AutoExitCurrentProcess>true</AutoExitCurrentProcess>
+    <AutoEndProcessesWithinAppDir>true</AutoEndProcessesWithinAppDir>
+    <AutoKillProcesses>false</AutoKillProcesses>
+    <RequreAdminstrorPrivilege>false</RequreAdminstrorPrivilege>
+  </UpdateInfo>
+  <DefaultFileVerificationLevel>Size Hash</DefaultFileVerificationLevel>
+  <DefaultUpdateMethod>VersionCompare</DefaultUpdateMethod>
+  <Files />
+  <ApplicationDirectory>KaoQin\bin\Release</ApplicationDirectory>
+  <DestinationDirectory>KaoQin.WebService\Update</DestinationDirectory>
+  <CreateCompatiblePackage>true</CreateCompatiblePackage>
+  <CompressPackage>true</CompressPackage>
+  <EnableIncreaseUpdate>true</EnableIncreaseUpdate>
+  <VersionUpdateSrc>KaoQin\bin\Release\KaoQin.exe</VersionUpdateSrc>
+  <PackageExtension>zip</PackageExtension>
+  <UseRandomPackageNaming>true</UseRandomPackageNaming>
+  <CleanBeforeBuild>false</CleanBeforeBuild>
+  <ComponentFlags />
+</AuProject>

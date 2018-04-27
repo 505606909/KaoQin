@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <div class="fmi_LgBxCon1">
+        <h3 class="ImgJ2 LgBx_Name"></h3>
+        <table border="0" cellspacing="0" cellpadding="0" class="LgBxLst_tb">
+            <tbody>
+                <tr id="uName">
+                    <th nowrap="nowrap" id="th_user">员工编号</th>
+                    <td>
+                        <input name="txt_username" type="text" id="txt_username" class="Ipt" style="width:190px;" onfocus="this.className='Ipt IptOnF'" onblur="this.className='Ipt'" tabindex="1" maxlength="20">
+                    </td>
+                </tr>
+                <tr class="tips" style="display:none;">
+                    <th></th>
+                    <td><div id="tips" class="inner"></div></td>
+                </tr>
+                <tr>
+                    <th nowrap="nowrap">密　码</th>
+                    <td><input name="txt_pwd" type="password" id="txt_pwd" class="Ipt1" style="width:190px;" onfocus="this.className='Ipt IptOnF'" onblur="this.className='Ipt'" maxlength="20" tabindex="2"></td>
+                </tr>
+                <tr>
+                    <!-- style="display:none"-->
+
+                    <td nowrap="nowrap" class="Chk_Wp" colspan="2">
+                        <p class="defaultP">
+                            语言(Language):
+                            <input type="radio" name="ra_lang" checked="" value="zh-cn" id="ra_lang1"><label for="month6">简体中文</label>
+                            <input type="radio" name="ra_lang" value="en-US" id="ra_lang2"><label for="month3">English</label>
+
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <td class="Smb_Wp">
+                        <input type="checkbox" name="rmbUser" id="rmbUser" class="Chk_RName1" checked="" tabindex="6">
+                        <label for="rmbUser">记住用户名</label>
+                        <label for="chkSSL"></label>
+                        <input onclick="document.getElementById('hid_usertype2').value=document.getElementById('hid_usertype').value;v=validinput(this);if(!v)return; __doPostBack('ddd','')" name="ddd" type="button" id="ddd" class="Btn SmbBtn" tabindex="3" onmousedown="this.className='Btn SmbBtn BtnDw'" onmouseover="this.className='Btn SmbBtn BtnHv'" onmouseout="this.className='Btn SmbBtn'" value="登 录">
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <td nowrap="nowrap" class="Reg_Wp">
+                        <span><a href="#" onclick="alert('请联系系统管理员');">找回密码</a></span>
+                        <span><a href="#" onclick="window.open('help1.htm')">相关帮助</a></span>
+                        <a href="#" onclick="createShortcut()">创建快捷方式</a>
+
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
