@@ -195,7 +195,7 @@ namespace KaoQin
             /*如果上班时间和下班时间差小于1个小时.则不提交加班*/
             string[] dateArr = applyData.ApplyTime.Split('-');
             DateTime dtBegin = DateTime.Parse("2000-01-01 " + dateArr[0] + ":00");
-            DateTime dtEnd = DateTime.Parse("2000-01-01 " + dateArr[1] + ":00");
+            DateTime dtEnd = DateTime.Parse("2000-01-01 " + dateArr[dateArr.Length-1] + ":00");
             if ((dtEnd-dtBegin).Minutes<0)
             {
                 Application.Exit();
