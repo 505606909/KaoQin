@@ -85,15 +85,15 @@ namespace KaoQin
             if (webBrowser1.ReadyState == WebBrowserReadyState.Complete)
             {
                 this.webBrowser1.DocumentCompleted -= OpenKqList;
-                var gridId = "GridView2";
-                //读取当月数据
-                HtmlElement element = webBrowser1.Document.All[gridId];
-                HtmlElementCollection trs = element.Children[0].Children;
+                var gridId = "form1";
+                //读取当月数据 
+                HtmlElementCollection trs = webBrowser1.Document.All[gridId].Children[4].Children[1].Children[0].Children;
                 
                 for (int i = trs.Count-1; i>0;i--)
                 {
                     var tr = trs[i];
-                    var date = tr.Children[0].InnerText.Trim();
+                    if (tr.TagName.ToLower() != "tr") { continue;}
+                    var date = tr.Children[0].Children[0].InnerText.Trim();
                     DateTime applyDate = DateTime.Parse(date);
                     if (applyDate.ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"))
                     {
@@ -125,8 +125,8 @@ namespace KaoQin
                         msg = ("没有下班时间,无法申请加班!");
                         break;
                     }
-                    var startTime = DateTime.Parse(date + " " + startTimeStr);
-                    var endTime = DateTime.Parse(date + " " + endTimeStr);
+                    var startTime = DateTime.Parse( startTimeStr);
+                    var endTime = DateTime.Parse(endTimeStr);
                     if (endTime == startTime)
                     {
                         msg = ("请检查上下班考勤,是否有未打卡现象");
@@ -135,6 +135,7 @@ namespace KaoQin
                     if ((endTime - startTime).Hours < 1)
                     {
                         msg = ("没有查到加班,无需申请");
+                        
                         break;
                     }
                     if (startTime.Minute <= 30)
