@@ -71,7 +71,24 @@ namespace KaoQin
         #endregion
 
         #region 打开考勤列表
-
+        private bool IsNullDate(string dateTime)
+        {
+            
+            if (string.IsNullOrEmpty(dateTime))
+            {
+                return true;
+            }
+            dateTime = dateTime.Trim();
+            if(dateTime== "暂无")
+            {
+                return true;
+            }
+            if (dateTime == "未考勤")
+            {
+                return true;
+            }
+            return false;
+        }
         /// <summary>
         /// 登录完成
         /// </summary>
@@ -102,28 +119,18 @@ namespace KaoQin
                     var weekDay = tr.Children[1].InnerText.Trim();
                     var startTimeStr = tr.Children[3].InnerText.Trim(); 
                     var endTimeStr=tr.Children[5].InnerText.Trim();
-                    if (startTimeStr.Trim() == "暂无")
+                    if (IsNullDate(startTimeStr)&&IsNullDate(endTimeStr))
                     {
                         continue;
                     }
-                    if (endTimeStr.Trim() == "暂无")
+                    if (IsNullDate(endTimeStr))
                     {
                         msg = ("没有下班时间,无法申请加班!");
                         break;
-                    }
-                    if (startTimeStr == "未考勤" && endTimeStr == "未考勤")
+                    } 
+                    if(IsNullDate(startTimeStr))
                     {
-                        continue;
-                    }
-                    else if (startTimeStr == "未考勤")
-                    {
-                        msg = ("没有上班时间,无法申请加班!");
-                        break;
-                    }
-                    else if(endTimeStr == "未考勤")
-                    {
-                        msg = ("没有下班时间,无法申请加班!");
-                        break;
+                        startTimeStr = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd HH:mm:ss");
                     }
                     var startTime = DateTime.Parse( startTimeStr);
                     var endTime = DateTime.Parse(endTimeStr);
@@ -133,9 +140,8 @@ namespace KaoQin
                         break;
                     }
                     if ((endTime - startTime).Hours < 1)
-                    {
-                        msg = ("没有查到加班,无需申请");
-                        
+                    { 
+                        Application.Exit();
                         break;
                     }
                     if (startTime.Minute <= 30)
